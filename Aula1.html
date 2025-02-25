@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introdução aos Algoritmos</title>
+    <style>
+        :root {
+            --primary-color: #00796b;
+            --secondary-color: #e0f7fa;
+            --background-color: #f4f4f4;
+            --text-color: #555;
+            --font-family: Arial, sans-serif;
+        }
+        body {
+            font-family: var(--font-family);
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+        }
+        .slide {
+            padding: 20px;
+            margin: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .slide:hover {
+            background-color: var(--secondary-color);
+            transform: scale(1.02);
+        }
+        .slide.active {
+            border: 2px solid var(--primary-color);
+        }
+        h1, h2 {
+            color: var(--primary-color);
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        ul li {
+            margin: 10px 0;
+        }
+        pre {
+            background-color: #eceff1;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        .subtitle {
+            font-size: 0.8em;
+            color: var(--text-color);
+        }
+        .diagram {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+        .diagram img {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slide" id="slide1">
+        <h1>Introdução aos Algoritmos</h1>
+        <h2 class="subtitle">Max Streicher Vallim</h2>
+    </div>
+
+    <div class="slide" id="slide2">
+        <h2>O que é um Algoritmo?</h2>
+        <ul>
+            <li>Um algoritmo é uma sequência finita de instruções bem definidas e não ambíguas.</li>
+            <li>É usado para resolver um problema ou realizar uma tarefa específica.</li>
+        </ul>
+    </div>
+
+    <div class="slide" id="slide3">
+        <h2>Características dos Algoritmos</h2>
+        <ul>
+            <li><strong>Finitude:</strong> Deve ter um número finito de passos.</li>
+            <li><strong>Definição:</strong> Cada passo deve ser claramente definido.</li>
+            <li><strong>Entrada:</strong> Deve ter zero ou mais entradas.</li>
+            <li><strong>Saída:</strong> Deve ter uma ou mais saídas.</li>
+            <li><strong>Efetividade:</strong> As operações devem ser básicas e realizáveis.</li>
+        </ul>
+    </div>
+
+    <div class="slide" id="slide4">
+        <h2>Exemplo de Algoritmo: Soma de Dois Números</h2>
+        <ul>
+            <li>Passo 1: Leia o primeiro número, `a`.</li>
+            <li>Passo 2: Leia o segundo número, `b`.</li>
+            <li>Passo 3: Calcule a soma de `a` e `b` e armazene em `soma`.</li>
+            <li>Passo 4: Exiba o valor de `soma`.</li>
+        </ul>
+        <pre>
+a = int(input("Digite o primeiro número: "))
+b = int(input("Digite o segundo número: "))
+soma = a + b
+print("A soma é:", soma)
+        </pre>
+    </div>
+
+    <div class="slide" id="slide5">
+        <h2>Fluxogramas</h2>
+        <ul>
+            <li>Um fluxograma é uma representação gráfica de um algoritmo ou processo.</li>
+            <li>Usa símbolos padronizados para representar diferentes tipos de ações ou etapas.</li>
+            <li>Facilita a visualização e compreensão do fluxo de um algoritmo.</li>
+        </ul>
+        <pre>
+Início
+  |
+  v
+Leia a, b
+  |
+  v
+soma = a + b
+  |
+  v
+Exiba soma
+  |
+  v
+Fim
+        </pre>
+    </div>
+
+    <div class="slide" id="slide6">
+        <h2>Diagramas Básicos de um Fluxograma</h2>
+        <div class="diagram">
+            <img src="imagens/inicio_fim.png" alt="Início/Fim">
+            <span><strong>Início/Fim:</strong> Representa o início ou o fim do processo.</span>
+        </div>
+        <div class="diagram">
+            <img src="imagens/processo.png" alt="Processo">
+            <span><strong>Processo:</strong> Representa uma etapa ou ação no processo.</span>
+        </div>
+        <div class="diagram">
+            <img src="imagens/decisao.png" alt="Decisão">
+            <span><strong>Decisão:</strong> Representa um ponto de decisão que altera o fluxo com base em uma condição.</span>
+        </div>
+        <div class="diagram">
+            <img src="imagens/conector.png" alt="Conector">
+            <span><strong>Conector:</strong> Representa a conexão entre diferentes partes do fluxograma.</span>
+        </div>
+    </div>
+
+    <div class="slide" id="slide7">
+        <h2>Exercícios Práticos</h2>
+        <ol>
+            <li>Escreva um algoritmo que leia dois números e exiba o maior deles.</li>
+            <li>Crie um algoritmo que leia um número e determine se ele é par ou ímpar.</li>
+            <li>Desenvolva um algoritmo que calcule a média de três números.</li>
+            <li>Escreva um algoritmo que leia um número e exiba a tabuada desse número de 1 a 10.</li>
+            <li>Crie um algoritmo que leia um número e determine se ele é primo.</li>
+            <li>Desenvolva um algoritmo que leia uma lista de números e exiba a soma dos números.</li>
+            <li>Escreva um algoritmo que leia uma lista de números e exiba o maior e o menor número da lista.</li>
+            <li>Crie um algoritmo que leia uma string e conte o número de vogais na string.</li>
+            <li>Escreva um algoritmo que leia a idade de uma pessoa e determine se ela é maior de idade (18 anos ou mais).</li>
+            <li>Crie um algoritmo que leia a temperatura em graus Celsius e converta para Fahrenheit.</li>
+        </ol>
+    </div>
+
+    <script>
+        document.querySelectorAll('.slide').forEach(slide => {
+            slide.addEventListener('click', () => {
+                document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+                slide.classList.add('active');
+            });
+        });
+    </script>
+
+</body>
+</html>
