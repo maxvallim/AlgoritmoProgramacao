@@ -3,63 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Algoritmo e Programação</title>
+    <title style="color: #00509E;">Unidade de Estudos: Algoritmo e Programação</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #e0f7fa;
-            color: #333;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
             margin: 0;
             padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
         }
         header {
-            background-color: #00796b;
-            color: white;
-            padding: 20px 0;
+            background-color: #ffffff; /* Cor branca */
+            color: #333;
+            padding: 10px 0;
             text-align: center;
         }
-        main {
-            padding: 20px;
-            max-width: 800px;
+        .container {
+            width: 80%;
             margin: auto;
+            overflow: hidden;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
         }
-        h1 {
-            color: white;
-            margin: 0;
-            font-size: 2em;
+        h1, h2, h3 {
+            color: #00509E; /* Azul marinho mais claro */
         }
-        h2 {
-           : none;
+        p {
+            color: #000000; /* Preto */
+            margin-bottom: 20px;
+        }
+        .comparison {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .comparison div {
+            width: 45%;
+            background: #f9f9f9;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+        .activities {
+            margin-top: 40px;
+        }
+        .activities ul {
+            list-style-type: none;
             padding: 0;
         }
-        li {
+        .activities li {
             margin-bottom: 10px;
         }
-        a {
+        .activities a {
+            color: #00509E; /* Azul marinho mais claro */
             text-decoration: none;
-            color: #00796b;
-            font-weight: bold;
         }
-        a:hover {
+        .activities a:hover {
             text-decoration: underline;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Algoritmo e Programação</h1>
-        <h2>Professor: Max Streicher Vallim</h2>
+        <h1>Unidade de Estudos: Algoritmo e Programação</h1>
     </header>
-    <main>
-        <p>Bem-vindo à unidade de estudo de Algoritmo e Programação. Nesta unidade, você aprenderá os conceitos fundamentais de algoritmos e como programar em diferentes linguagens. Vamos explorar desde a lógica de programação básica até técnicas mais avançadas, preparando você para resolver problemas de forma eficiente e eficaz.</p>
+    
+    <div class="container">
+        <h2>Contextualização do Uso e Importância de Estudar Algoritmos e Fluxogramas</h2>
+        <p>
+            Estudar algoritmos e fluxogramas é fundamental para qualquer programador. Algoritmos são conjuntos de instruções que resolvem problemas específicos. Eles são a base de toda programação, permitindo que os desenvolvedores criem soluções eficientes e eficazes.
+        </p>
+        <p>
+            Fluxogramas são representações gráficas de algoritmos. Eles ajudam a visualizar o fluxo de execução de um programa, facilitando a compreensão e a comunicação de ideias complexas. O uso de fluxogramas é especialmente útil na fase de planejamento e design de software, pois permite identificar possíveis problemas e otimizar processos antes mesmo de escrever uma linha de código.
+        </p>
         
-        <h2>Aulas</h2>
-        <ul>
-            <li><a href="Aula1.html">Aula 1: Introdução aos Algoritmos</a></li>
-            <li><a href="Aula2.html">Aula 2: Introdução ao Python com PyCharm</a></li>
-            <li><a href="Aula3.html">Aula 3: Comandos Básicos do Python</a></li>
-        </ul>
-    </main>
+        <h2>Comparação entre Python e C++</h2>
+        <div class="comparison">
+            <div>
+                <h3>Python</h3>
+                <p>
+                    Python é uma linguagem de programação de alto nível, conhecida por sua simplicidade e legibilidade. É amplamente utilizada em diversas áreas, como desenvolvimento web, ciência de dados, inteligência artificial e automação. A sintaxe clara e concisa do Python torna-o uma excelente escolha para iniciantes.
+                </p>
+            </div>
+            <div>
+                <h3>C++</h3>
+                <p>
+                    C++ é uma linguagem de programação de médio nível que combina características de linguagens de alto e baixo nível. É conhecida por sua eficiência e controle sobre os recursos do sistema, o que a torna ideal para aplicações que exigem alto desempenho, como jogos, sistemas operacionais e desenvolvimento de IoT (Internet das Coisas).
+                </p>
+            </div>
+        </div>
+        
+        <h2>Importância do C++ para Desenvolver IoT</h2>
+        <p>
+            O C++ é amplamente utilizado no desenvolvimento de IoT devido à sua capacidade de manipular diretamente o hardware e gerenciar recursos de forma eficiente. Dispositivos IoT muitas vezes têm recursos limitados, como memória e poder de processamento, e o C++ permite otimizar o desempenho desses dispositivos.
+        </p>
+        <p>
+            Além disso, o C++ oferece suporte a programação orientada a objetos, permitindo a criação de sistemas modulares e escaláveis. Sua compatibilidade com diversas plataformas e a vasta quantidade de bibliotecas disponíveis tornam o C++ uma escolha robusta para projetos de IoT.
+        </p>
+
+        <div class="activities">
+            <h2>Atividades</h2>
+            <ul>
+                <li><a href="aula1.html">Introdução aos Algoritmos</a></li>
+                <li><a href="aula2.html">Python - Overview</a></li>
+                <li><a href="aula3.html">Comandos Básicos do Python</a></li>
+                <li><a href="aula4.html">Introdução ao C++</a></li>
+                <li><a href="aula5.html">Visual Studio Code - Overview</a></li>
+                <li><a href="aula6.html">Code::Blocks - Overview</a></li>
+                <li><a href="aula7.html">C++ - principais comandos e operadores</a></li>
+                <li><a href="aula8.html">C++ - variáveis</a></li>
+				<li><a href="aula9.html">C++ - Overview Bibliotecas</a></li>				
+            </ul>
+        </div>
+    </div>
 </body>
 </html>
-

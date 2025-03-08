@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tipos e Declarações de Variáveis em C++</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #0056b3;
+        }
+        ul, ol {
+            margin: 20px 0;
+            padding: 0 20px;
+        }
+        a {
+            color: #0056b3;
+            text-decoration: none;
+               a:hover {
+            text-decoration: underline;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            overflow-x: auto;
+        }
+        code {
+            font-family: "Courier New", Courier, monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tipos e Declarações de Variáveis em C++</h1>
+        
+        <h2>Contextualização</h2>
+        <p>Em C++, variáveis são usadas para armazenar dados que podem ser manipulados pelo programa. Declarar variáveis corretamente é essencial para garantir que o código seja eficiente e fácil de entender. Aqui estão alguns pontos importantes sobre declarações de variáveis:</p>
+        <ul>
+            <li><strong>Onde declarar:</strong> Variáveis podem ser declaradas dentro de funções (variáveis locais) ou fora de funções (variáveis globais). Variáveis locais são acessíveis apenas dentro da função onde foram declaradas, enquanto variáveis globais são acessíveis em todo o programa.</li>
+            <li><strong>Por que declarar:</strong> Declarar variáveis permite ao compilador alocar memória e definir o tipo de dados que a variável irá armazenar. Isso ajuda a evitar erros e a garantir que o programa funcione corretamente.</li>
+            <li><strong>Variáveis públicas e privadas:</strong> Em classes, variáveis podem ser declaradas como públicas (`public`), privadas (`private`) ou protegidas (`protected`). Variáveis públicas são acessíveis de fora da classe, enquanto variáveis privadas são acessíveis apenas dentro da classe. Variáveis protegidas são acessíveis dentro da classe e em classes derivadas.</li>
+        </ul>
+
+        <h2>1. `int`</h2>
+        <p>Tipo de dado inteiro.</p>
+        <pre><code>int idade = 25;
+std::cout << "Idade: " << idade << std::endl;</code></pre>
+
+        <h2>2. `float`</h2>
+        <p>Tipo de dado ponto flutuante de precisão simples.</p>
+        <pre><code>float altura = 1.75f;
+std::cout << "Altura: " << altura << " metros" << std::endl;</code></pre>
+
+        <h2>3. `double`</h2>
+        <p>Tipo de dado ponto flutuante de precisão dupla.</p>
+        <pre><code>double peso = 70.5;
+std::cout << "Peso: " << peso << " kg" << std::endl;</code></pre>
+
+        <h2>4. `char`</h2>
+        <p>Tipo de dado caractere.</p>
+        <pre><code>char inicial = 'A';
+std::cout << "Inicial: " << inicial << std::endl;</code></pre>
+
+        <h2>5. `bool`</h2>
+        <p>Tipo de dado booleano (verdadeiro ou falso).</p>
+        <pre><code>bool isAdulto = true;
+std::cout << "É adulto: " << std::boolalpha << isAdulto << std::endl;</code></pre>
+
+        <h2>6. `string`</h2>
+        <p>Tipo de dado para cadeias de caracteres (necessita da biblioteca `<string>`).</p>
+        <pre><code>#include &lt;string&gt;
+
+std::string nome = "João";
+std::cout << "Nome: " << nome << std::endl;</code></pre>
+
+        <h2>7. `const`</h2>
+        <p>Declara uma variável constante, cujo valor não pode ser alterado.</p>
+        <pre><code>const int diasNaSemana = 7;
+std::cout << "Dias na semana: " << diasNaSemana << std::endl;</code></pre>
+
+        <h2>8. `unsigned`</h2>
+        <p>Declara uma variável sem sinal (apenas valores positivos).</p>
+        <pre><code>unsigned int idade = 25;
+std::cout << "Idade: " << idade << std::endl;</code></pre>
+
+        <h2>9. `long`</h2>
+        <p>Declara uma variável inteira longa.</p>
+        <pre><code>long populacao = 7000000000;
+std::cout << "População: " << populacao << std::endl;</code></pre>
+
+        <h2>10. `short`</h2>
+        <p>Declara uma variável inteira curta.</p>
+        <pre><code>short ano = 2025;
+std::cout << "Ano: " << ano << std::endl;</code></pre>
+
+        <h2>11. `auto`</h2>
+        <p>Permite ao compilador deduzir automaticamente o tipo da variável.</p>
+        <pre><code>auto pi = 3.14159;
+std::cout << "Valor de pi: " << pi << std::endl;</code></pre>
+
+        <h2>12. `enum`</h2>
+        <p>Declara um tipo enumerado.</p>
+        <pre><code>enum Cor { VERMELHO, VERDE, AZUL };
+Cor minhaCor = VERDE;
+std::cout << "Cor: " << minhaCor << std::endl;</code></pre>
+
+        <h2>13. `struct`</h2>
+        <p>Declara uma estrutura.</p>
+        <pre><code>struct Pessoa {
+    std::string nome;
+    int idade;
+};
+
+Pessoa pessoa1;
+pessoa1.nome = "Maria";
+pessoa1.idade = 30;
+std::cout << "Nome: " << pessoa1.nome << ", Idade: " << pessoa1.idade << std::endl;</code></pre>
+
+        <h2>14. `typedef`</h2>
+        <p>Define um novo nome para um tipo existente.</p>
+        <pre><code>typedef unsigned int uint;
+uint idade = 25;
+std::cout << "Idade: " << idade << std::endl;</code></pre>
+
+        <h2>15. `decltype`</h2>
+        <p>Deduz o tipo de uma expressão.</p>
+        <pre><code>int x = 10;
+decltype(x) y = 20;
+std::cout << "y: " << y << std::endl;</code></pre>
+
+        <h2>16. `extern`</h2>
+        <p>Declara uma variável que é definida em outro arquivo.</p>
+        <pre><code>extern int contador;
+std::cout << "Contador: " << contador << std::endl;</code></pre>
+
+        <h2>17. `static`</h2>
+        <p>Declara uma variável com duração de armazenamento estática.</p>
+        <pre><code>static int contador = 0;
+contador++;
+std::cout << "Contador: " << contador << std::endl;</code></pre>
+
+        <h2>18. `volatile`</h2>
+        <p>Indica que uma variável pode ser modificada de maneiras não previstas pelo programa.</p>
+        <pre><code>volatile int sinal;
+sinal = 1;
+std::cout << "Sinal: " << sinal << std::endl;</code></pre>
+
+        <h2>19. `mutable`</h2>
+        <p>Permite que um membro de uma classe seja modificado mesmo que a instância da classe seja constante.</p>
+        <pre><code>class MinhaClasse {
+public:
+    mutable int contador = 0;
+};
+
+const MinhaClasse obj;
+obj.contador++;
+std::cout << "Contador: " << obj.contador << std::endl;</code></pre>
+
+        <h2>20. `nullptr`</h2>
+        <p>Representa um ponteiro nulo.</p>
+        <pre><code>int* ptr = nullptr;
+std::cout << "Ponteiro: " << ptr << std::endl;</code></pre>
+
+    </div>
+</body>
+</

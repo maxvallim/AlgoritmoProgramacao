@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bibliotecas Incluídas em C++</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #0056b3;
+        }
+        ul, ol {
+            margin: 20px 0;
+            padding: 0 20px;
+       : none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            overflow-x: auto;
+        }
+        code {
+            font-family: "Courier New", Courier, monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bibliotecas Incluídas em C++</h1>
+        
+        <h2>1.</h2>
+        <p>Biblioteca para operações de entrada e saída padrão.</p>
+        <pre><code>#include &lt;iostream&gt;
+
+int main() {
+    std::cout << "Hello, World!" << std::endl;
+    return 0;
+}</code></pre>
+
+        <h2>2.</h2>
+        <p>Biblioteca para o uso de vetores (arrays dinâmicos).</p>
+        <pre><code>#include &lt;vector&gt;
+
+int main() {
+    std::vector&lt;int&gt; numeros = {1, 2, 3, 4, 5};
+    for (int num : numeros) {
+        std::cout << num << " ";
+    }
+    return 0;
+}</code></pre>
+
+        <h2>3.</h2>
+        <p>Biblioteca para manipulação de cadeias de caracteres.</p>
+        <pre><code>#include &lt;string&gt;
+
+int main() {
+    std::string saudacao = "Olá, Mundo!";
+    std::cout << saudacao << std::endl;
+    return 0;
+}</code></pre>
+
+        <h2>4.</h2>
+        <p>Biblioteca para algoritmos padrão, como ordenação e busca.</p>
+        <pre><code>#include &lt;algorithm&gt;
+#include &lt;vector&gt;
+
+int main() {
+    std::vector&lt;int&gt; numeros = {5, 3, 1, 4, 2};
+    std::sort(numeros.begin(), numeros.end());
+    for (int num : numeros) {
+        std::cout << num << " ";
+    }
+    return 0;
+}</code></pre>
+
+        <h2>5.</h2>
+        <p>Biblioteca para o uso de mapas (associações chave-valor).</p>
+        <pre><code>#include &lt;map&gt;
+
+int main() {
+    std::map&lt;std::string, int&gt; idade;
+    idade["João"] = 25;
+    idade["Maria"] = 30;
+    for (const auto& par : idade) {
+        std::cout << par.first << ": " << par.second << std::endl;
+    }
+    return 0;
+}</code></pre>
+
+        <h2>6.</h2>
+        <p>Biblioteca para o uso de conjuntos (coleções de elementos únicos).</p>
+        <pre><code>#include &lt;set&gt;
+
+int main() {
+    std::set&lt;int&gt; numeros = {1, 2, 3, 4, 5};
+    numeros.insert(3); // Não será adicionado, pois já existe
+    for (int num : numeros) {
+        std::cout << num << " ";
+    }
+    return 0;
+}</code></pre>
+
+        <h2>7.</h2>
+        <p>Biblioteca para funções matemáticas.</p>
+        <pre><code>#include &lt;cmath&gt;
+
+int main() {
+    double raiz = std::sqrt(16.0);
+    std::cout << "Raiz quadrada de 16: " << raiz << std::endl;
+    return 0;
+}</code></pre>
+
+        <h2>8.</h2>
+        <p>Biblioteca para manipulação de tempo e data.</p>
+        <pre><code>#include &lt;ctime&gt;
+
+int main() {
+    std::time_t agora = std::time(0);
+    std::cout << "Hora atual: " << std::ctime(&agora);
+    return 0;
+}</code></pre>
+
+        <h2>9.</h2>
+        <p>Biblioteca para operações de leitura e escrita em arquivos.</p>
+        <pre><code>#include &lt;fstream&gt;
+
+int main() {
+    std::ofstream arquivo("exemplo.txt");
+    arquivo << "Olá, Arquivo!" << std::endl;
+    arquivo.close();
+    return 0;
+}</code></pre>
+
+        <h2>10.</h2>
+        <p>Biblioteca para manipulação de threads.</p>
+        <pre><code>#include &lt;thread&gt;
+
+void funcao() {
+    std::cout << "Thread em execução" << std::endl;
+}
+
+int main() {
+    std::thread t(funcao);
+    t.join();
+    return 0;
+}</code></pre>
+
+    </div>
+</body>
+</html>

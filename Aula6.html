@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primeiros Passos com C++ no Code::Blocks</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #0056b3;
+        }
+        ul, ol {
+            margin: 20px 0;
+            padding: 0 20px;
+        }
+       ;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            overflow-x: auto;
+        }
+        code {
+            font-family: "Courier New", Courier, monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Primeiros Passos com C++ no Code::Blocks</h1>
+        
+        <h2>Introdução</h2>
+        <p>Esta apresentação irá guiá-lo através dos primeiros passos para configurar e começar a programar em C++ usando o Code::Blocks. Incluímos algumas atividades práticas para ajudá-lo a entender melhor a linguagem e o ambiente de desenvolvimento.</p>
+
+        <h2>Instalando o Code::Blocks</h2>
+        <ol>
+            <li>Acesse o site oficial do <a href="http://www.codeblocks.org/downloads">Code::Blocks</a>.</li>
+            <li>Baixe o instalador que inclui o compilador MinGW para o seu sistema operacional (Windows, macOS ou Linux).</li>
+            <li>Execute o instalador e siga as instruções na tela.</li>
+        </ol>
+
+        <h2>Configurando o Ambiente no Code::Blocks</h2>
+        <ol>
+            <li>Abra o Code::Blocks.</li>
+            <li>Crie um novo projeto selecionando "File &gt; New &gt; Project" e escolha "Console Application".</li>
+            <li>Siga o assistente de criação de projeto, selecionando C++ como a linguagem de programação.</li>
+            <li>Escolha um diretório para salvar o projeto e dê um nome ao projeto.</li>
+            <li>O Code::Blocks criará automaticamente um arquivo principal (`main.cpp`).</li>
+        </ol>
+
+        <h2>Escrevendo o Primeiro Programa em C++</h2>
+        <p>Vamos começar com um simples programa "Hello, World!" em C++.</p>
+        <pre><code>#include &lt;iostream&gt;
+
+int main() {
+    std::cout &lt;&lt; "Hello, World!" &lt;&lt; std::endl;
+    return 0;
+}
+        </code></pre>
+
+        <h2>Compilando e Executando o Programa</h2>
+        <ol>
+            <li>Para compilar o programa, clique no ícone "Build and Run" (ou pressione F9).</li>
+            <li>O Code::Blocks irá compilar o programa e abrir uma janela de console para executar o programa.</li>
+            <li>Você verá a saída "Hello, World!" na janela de console.</li>
+        </ol>
+
+        <h2>Atividades Práticas</h2>
+        <h3>Atividade 1: Calculadora Simples</h3>
+        <p>Crie um programa em C++ que peça ao usuário dois números e exiba a soma, subtração, multiplicação e divisão desses números.</p>
+        <pre><code>#include &lt;iostream&gt;
+
+int main() {
+    double num1, num2;
+    std::cout &lt;&lt; "Digite o primeiro número: ";
+    std::cin &gt;&gt; num1;
+    std::cout &lt;&lt; "Digite o segundo número: ";
+    std::cin &gt;&gt; num2;
+
+    std::cout &lt;&lt; "Soma: " &lt;&lt; num1 + num2 &lt;&lt; std::endl;
+    std::cout &lt;&lt; "Subtração: " &lt;&lt; num1 - num2 &lt;&lt; std::endl;
+    std::cout &lt;&lt; "Multiplicação: " &lt;&lt; num1 * num2 &lt;&lt; std::endl;
+    std::cout &lt;&lt; "Divisão: " &lt;&lt; num1 / num2 &lt;&lt; std::endl;
+
+    return 0;
+}
+        </code></pre>
+
+        <h3>Atividade 2: Estrutura de Controle</h3>
+        <p>Crie um programa que peça ao usuário um número inteiro e determine se ele é par ou ímpar.</p>
+        <pre><code>#include &lt;iostream&gt;
+
+int main() {
+    int num;
+    std::cout &lt;&lt; "Digite um número inteiro: ";
+    std::cin &gt;&gt; num;
+
+    if (num % 2 == 0) {
+        std::cout &lt;&lt; num &lt;&lt; " é par." &lt;&lt; std::endl;
+    } else {
+        std::cout &lt;&lt; num &lt;&lt; " é ímpar." &lt;&lt; std::endl;
+    }
+
+    return 0;
+}
+        </code></pre>
+
+        <h3>Atividade 3: Laços de Repetição</h3>
+        <p>Crie um programa que exiba a tabuada de um número fornecido pelo usuário.</p>
+        <pre><code>#include &lt;iostream&gt;
+
+int main() {
+    int num;
+    std::cout &lt;&lt; "Digite um número para ver a tabuada: ";
+    std::cin &gt;&gt; num;
+
+    for (int i = 1; i <= 10; ++i) {
+        std::cout &lt;&lt; num &lt;&lt; " x " &lt;&lt; i &lt;&lt; " = " &lt;&lt; num * i &lt;&lt; std::endl;
+    }
+
+    return 0;
+}
+        </code></pre>
+
+    </div>
+</body>
+</html>
