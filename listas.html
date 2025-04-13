@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estruturas de Dados em C++</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff; /* Branco */
+            color: #000; /* Preto */
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+            text-transform: uppercase;
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
+        }
+        h2 {
+            margin-top: 20px;
+            text-decoration: underline;
+        }
+        p {
+            line-height: 1.6;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 4px;
+            font-size: 1em;
+            border-radius: 4px;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        ul {
+            list-style-type: square;
+            padding-left: 20px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Estruturas de Dados em C++</h1>
+
+        <h2>1. Array</h2>
+        <p>
+            Um <strong>array</strong> é uma estrutura estática que armazena elementos do mesmo tipo em memória contígua. 
+            O tamanho do array deve ser definido no momento da criação e não pode ser alterado.
+        </p>
+        <p>Exemplo de uso:</p>
+        <pre><code>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int array[5] = {1, 2, 3, 4, 5};
+
+    for (int i = 0; i < 5; i++) {
+        cout &lt;&lt; "Elemento " &lt;&lt; i &lt;&lt; ": " &lt;&lt; array[i] &lt;&lt; endl;
+    }
+    return 0;
+}
+        </code></pre>
+
+        <h2>2. Matriz</h2>
+        <p>
+            Uma <strong>matriz</strong> é um array multidimensional. É útil para armazenar dados organizados em linhas e colunas, como tabelas.
+        </p>
+        <p>Exemplo de uso:</p>
+        <pre><code>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int matriz[3][3] = {
+        {1, 2, 3},
+        {4, 5, 6},
+        {7, 8, 9}
+    };
+
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            cout &lt;&lt; matriz[i][j] &lt;&lt; " ";
+        }
+        cout &lt;&lt; endl;
+    }
+    return 0;
+}
+        </code></pre>
+
+        <h2>3. Tupla</h2>
+        <p>
+            Uma <strong>tupla</strong> permite armazenar múltiplos valores de tipos diferentes em uma única estrutura. 
+            É ideal para combinar dados heterogêneos.
+        </p>
+        <p>Exemplo de uso:</p>
+        <pre><code>
+#include &lt;iostream&gt;
+#include &lt;tuple&gt;
+using namespace std;
+
+int main() {
+    tuple&lt;int, string, float&gt; tupla = {42, "Texto", 3.14};
+
+    cout &lt;&lt; "Inteiro: " &lt;&lt; get&lt;0&gt;(tupla) &lt;&lt; endl;
+    cout &lt;&lt; "String: " &lt;&lt; get&lt;1&gt;(tupla) &lt;&lt; endl;
+    cout &lt;&lt; "Float: " &lt;&lt; get&lt;2&gt;(tupla) &lt;&lt; endl;
+
+    return 0;
+}
+        </code></pre>
+
+        <h2>4. Lista</h2>
+        <p>
+            Uma <strong>lista</strong> (implementada com <code>std::list</code>) é uma lista encadeada. 
+            É mais eficiente para inserções e remoções, mas menos eficiente para acesso direto.
+        </p>
+        <p>Exemplo de uso:</p>
+        <pre><code>
+#include &lt;iostream&gt;
+#include &lt;list&gt;
+using namespace std;
+
+int main() {
+    list&lt;int&gt; minhaLista = {1, 2, 3, 4, 5};
+
+    for (int elemento : minhaLista) {
+        cout &lt;&lt; elemento &lt;&lt; " ";
+    }
+    return 0;
+}
+        </code></pre>
+
+        <h2>5. Vetor</h2>
+        <p>
+            Um <strong>vetor</strong> (<code>std::vetor</code>) é um array dinâmico que ajusta automaticamente seu tamanho.
+            É muito utilizado por sua flexibilidade e facilidade de uso.
+        </p>
+        <p>Exemplo de uso:</p>
+        <pre><code>
+#include &lt;iostream&gt;
+#include &lt;vetor&gt;
+using namespace std;
+
+int main() {
+    Vetor&lt;int&gt; vetor = {10, 20, 30};
+
+    vetor.push_back(40); // Adiciona um elemento
+
+    for (int elemento : vetor) {
+        cout &lt;&lt; elemento &lt;&lt; " ";
+    }
+    return 0;
+}
+        </code></pre>
+    </div>
+
+    <footer>
+        <p>Desenvolvido para explicar as estruturas de dados em C++ de forma simples e prática.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1744159877 source:c:\users\maxva\onedrive - fiscon\max\max_unifeob\unidadesestudo\algoritmoprogramacao\atividades_c++\atv0804_6\main.cpp
+	<iostream>
+	<locale.h>
+	<iomanip>
+

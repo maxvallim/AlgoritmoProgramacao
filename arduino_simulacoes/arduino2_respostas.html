@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafios e Soluções IoT</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #000;
+            border-radius: 5px;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        p {
+            text-align: justify;
+        }
+        .code {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #000;
+            border-radius: 5px;
+            font-family: "Courier New", monospace;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .code pre {
+            margin: 0;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Desafios IoT e Lógica de Programação</h1>
+
+        <h2>1. Simulador de Temperatura</h2>
+        <p>
+            Desenvolver um algoritmo que simule sensores de temperatura em uma casa inteligente. Gere dados aleatórios de temperatura em graus Celsius para cada cômodo da casa.
+            <ul>
+                <li>Se a temperatura ultrapassar 30°C, o sistema deve ativar o "ar-condicionado".</li>
+                <li>Se a temperatura cair abaixo de 18°C, o sistema deve ativar o "aquecedor".</li>
+                <li>Exibir os status para cada cômodo no terminal.</li>
+            </ul>
+        </p>
+        <h3>Solução:</h3>
+        <div class="code">
+            <pre>
+#include &lt;iostream&gt;
+#include &lt;cstdlib&gt;
+#include &lt;ctime&gt;
+
+using namespace std;
+
+void verificarTemperatura(float temp, string comodo) {
+    if (temp > 30.0) {
+        cout &lt;&lt; comodo &lt;&lt; ": Temperatura " &lt;&lt; temp &lt;&lt; "°C - Ar-condicionado ligado!" &lt;&lt; endl;
+    } else if (temp < 18.0) {
+        cout &lt;&lt; comodo &lt;&lt; ": Temperatura " &lt;&lt; temp &lt;&lt; "°C - Aquecedor ligado!" &lt;&lt; endl;
+    } else {
+        cout &lt;&lt; comodo &lt;&lt; ": Temperatura " &lt;&lt; temp &lt;&lt; "°C - Temperatura ideal." &lt;&lt; endl;
+    }
+}
+
+int main() {
+    srand(time(0)); // Inicializa o gerador de números aleatórios
+    string comodos[] = {"Sala", "Quarto", "Cozinha", "Banheiro"};
+    int quantidadeComodos = 4;
+
+    for (int i = 0; i < quantidadeComodos; i++) {
+        float temperatura = 15.0 + static_cast&lt;float&gt;(rand()) / (static_cast&lt;float&gt;(RAND_MAX / (35.0 - 15.0)));
+        verificarTemperatura(temperatura, comodos[i]);
+    }
+
+    return 0;
+}
+            </pre>
+        </div>
+
+        <h2>2. Controle de Irrigação Inteligente</h2>
+        <p>
+            Criar um sistema de monitoramento para um jardim usando leitura de dados de um arquivo CSV.
+            <ul>
+                <li>Dados no arquivo representam a umidade do solo em porcentagem (0 a 100).</li>
+                <li>Se a umidade estiver abaixo de 40%, acione a irrigação.</li>
+                <li>Para umidade acima disso, registre como "umidade suficiente".</li>
+            </ul>
+        </p>
+        <h3>Solução:</h3>
+        <div class="code">
+            <pre>
+#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+void verificarUmidade(float umidade) {
+    if (umidade < 40.0) {
+        cout &lt;&lt; "Umidade " &lt;&lt; umidade &lt;&lt; "% - Irrigação ligada!" &lt;&lt; endl;
+    } else {
+        cout &lt;&lt; "Umidade " &lt;&lt; umidade &lt;&lt; "% - Umidade suficiente." &lt;&lt; endl;
+    }
+}
+
+int main() {
+    ifstream arquivo("umidade.csv");
+    string linha;
+
+    if (!arquivo.is_open()) {
+        cout &lt;&lt; "Erro ao abrir o arquivo." &lt;&lt; endl;
+        return 1;
+    }
+
+    while (getline(arquivo, linha)) {
+        float umidade = stof(linha);
+        verificarUmidade(umidade);
+    }
+
+    arquivo.close();
+    return 0;
+}
+            </pre>
+        </div>
+
+        <h2>3. Gerenciamento de Energia</h2>
+        <p>
+            Simular o monitoramento de consumo de energia elétrica em dispositivos de uma casa conectada.
+            <ul>
+                <li>Crie uma lista de dispositivos com consumo em kWh.</li>
+                <li>Desenvolva uma função que alerte se o consumo total ultrapassar 1000 kWh.</li>
+                <li>Simule o desligamento de dispositivos para equilibrar o consumo.</li>
+            </ul>
+        </p>
+        <h3>Solução:</h3>
+        <div class="code">
+            <pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+struct Dispositivo {
+    string nome;
+    float consumo; // consumo em kWh
+};
+
+void verificarConsumo(vector&lt;Dispositivo&gt; dispositivos) {
+    float consumoTotal = 0.0;
+
+    for (const auto& dispositivo : dispositivos) {
+        consumoTotal += dispositivo.consumo;
+        cout &lt;&lt; dispositivo.nome &lt;&lt; " consumiu " &lt;&lt; dispositivo.consumo &lt;&lt; " kWh." &lt;&lt; endl;
+    }
+
+    cout &lt;&lt; "Consumo total: " &lt;&lt; consumoTotal &lt;&lt; " kWh." &lt;&lt; endl;
+
+    if (consumoTotal > 1000.0) {
+        cout &lt;&lt; "ALERTA: Consumo total excedeu 1000 kWh! Desligue alguns dispositivos!" &lt;&lt; endl;
+    } else {
+        cout &lt;&lt; "Consumo dentro do limite." &lt;&lt; endl;
+    }
+}
+
+int main() {
+    vector&lt;Dispositivo&gt; dispositivos = {
+        {"Geladeira", 300.0},
+        {"TV", 200.0},
+        {"Ar-condicionado", 500.0},
+        {"Máquina de lavar", 150.0}
+    };
+
+    verificarConsumo(dispositivos);
+    return 0;
+}
+            </pre>
+        </div>
+
+        <h2>4. Reconhecimento de Placas de Veículos</h2>
+        <p>
+            Processar placas de veículos a partir de uma lista de texto simulada (placas lidas por uma câmera).
+            <ul>
+                <li>Verifique se as placas estão cadastradas em um banco de dados simples.</li>
+                <li>Se a placa for encontrada, exiba "Acesso Liberado".</li>
+                <li>Caso contrário, exiba "Acesso Negado".</li>
+            </ul>
+        </p>
+        <h3>Solução:</h3>
+        <div class="code">
+            <pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+bool verificarPlaca(const vector&lt;string&gt;& banco, const string& placa) {
+    for (const auto& p : banco) {
+        if (p == placa) {
+            return true;
+        }
+    }
+    return false;
+}
+
+int main() {
+    vector&lt;string&gt; bancoDePlacas = {"ABC1234", "XYZ9876", "DEF5678"};
+    vector&lt;string&gt; placasLidas = {"ABC1234", "GHJ3456", "DEF5678"};
+
+    for (const auto& placa : placasLidas) {
+        if (verificarPlaca(bancoDePlacas, placa)) {
+            cout &lt;&lt; "Placa " &lt;&lt; placa &lt;&lt; ": Acesso Liberado." &lt;&lt; endl;
+        } else {
+            cout &lt;&lt; "Placa

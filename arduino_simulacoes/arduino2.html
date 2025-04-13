@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafios IoT e Lógica</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #000;
+            border-radius: 5px;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        p {
+            text-align: justify;
+        }
+        .code {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #000;
+            border-radius: 5px;
+            font-family: "Courier New", monospace;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .code pre {
+            margin: 0;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Desafios IoT e Lógica de Programação</h1>
+        <h2>1. Simulador de Temperatura</h2>
+        <p>
+            Desenvolver um algoritmo que simule sensores de temperatura em uma casa inteligente. Gere dados aleatórios de temperatura em graus Celsius para cada cômodo da casa.
+            <ul>
+                <li>Se a temperatura ultrapassar 30°C, o sistema deve ativar o "ar-condicionado".</li>
+                <li>Se a temperatura cair abaixo de 18°C, o sistema deve ativar o "aquecedor".</li>
+                <li>Exibir os status para cada cômodo no terminal.</li>
+            </ul>
+        </p>
+
+        <h2>2. Controle de Irrigação Inteligente</h2>
+        <p>
+            Criar um sistema de monitoramento para um jardim usando leitura de dados de um arquivo CSV.
+            <ul>
+                <li>Dados no arquivo representam a umidade do solo em porcentagem (0 a 100).</li>
+                <li>Se a umidade estiver abaixo de 40%, acione a irrigação.</li>
+                <li>Para umidade acima disso, registre como "umidade suficiente".</li>
+            </ul>
+        </p>
+
+        <h2>3. Gerenciamento de Energia</h2>
+        <p>
+            Simular o monitoramento de consumo de energia elétrica em dispositivos de uma casa conectada.
+            <ul>
+                <li>Crie uma lista de dispositivos com consumo em kWh.</li>
+                <li>Desenvolva uma função que alerte se o consumo total ultrapassar 1000 kWh.</li>
+                <li>Simule o desligamento de dispositivos para equilibrar o consumo.</li>
+            </ul>
+        </p>
+
+        <h2>4. Reconhecimento de Placas de Veículos</h2>
+        <p>
+            Processar placas de veículos a partir de uma lista de texto simulada (placas lidas por uma câmera).
+            <ul>
+                <li>Verifique se as placas estão cadastradas em um banco de dados simples.</li>
+                <li>Se a placa for encontrada, exiba "Acesso Liberado".</li>
+                <li>Caso contrário, exiba "Acesso Negado".</li>
+            </ul>
+        </p>
+
+        <h2>5. Controle de Estoque com Pesagem</h2>
+        <p>
+            Desenvolver um sistema que simule o controle de estoque em um armazém.
+            <ul>
+                <li>Os sensores de peso verificam a quantidade de carga em caixas.</li>
+                <li>Se o peso for inferior a 5 kg, sinalizar "Estoque baixo".</li>
+                <li>Se o peso for maior que 50 kg, sinalizar "Excesso de estoque".</li>
+                <li>Para pesos entre 5 kg e 50 kg, registrar como "Estoque normal".</li>
+            </ul>
+        </p>
+    </div>
+</body>
+</html>
