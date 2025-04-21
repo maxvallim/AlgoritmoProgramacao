@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial: Processamento de Placas de Veículos</title>
+    <style>
+        body {
+            background-color: white;
+            color: black;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2rem;
+            border-bottom: 2px solid black;
+            padding-bottom: 10px;
+        }
+        .section {
+            margin: 20px;
+            padding: 10px;
+            border: 1px solid black;
+            background-color: #f9f9f9;
+        }
+        pre {
+            background-color: #eeeeee;
+            padding: 15px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+        }
+        ul {
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tutorial: Processamento de Placas de Veículos</h1>
+    
+    <div class="section">
+        <h2>Explicação das Bibliotecas</h2>
+        <ul>
+            <li>
+                <strong>#include &lt;iostream&gt;</strong>: 
+                Biblioteca para entrada e saída de dados. Permite exibir mensagens no terminal com <code>cout</code> e ler entradas com <code>cin</code>.
+            </li>
+            <li>
+                <strong>#include &lt;string&gt;</strong>: 
+                Permite manipular textos com facilidade usando o tipo <code>std::string</code>. É usada para armazenar e comparar placas de veículos.
+            </li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Código do Programa</h2>
+        <pre>
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+
+int main() {
+    // Banco de dados de placas cadastradas (matriz 2D)
+    string placasCadastradas[5][2] = {
+        {"ABC1234", "João"},
+        {"XYZ9876", "Maria"},
+        {"LMN4567", "Carlos"},
+        {"DEF5678", "Ana"},
+        {"GHI8901", "Paulo"}
+    };
+
+    // Número fixo de placas cadastradas
+    int totalPlacasCadastradas = 5;
+
+    // Lista de placas lidas pela câmera
+    string placasLidas[] = {"ABC1234", "LMN4567", "ZZZ9999", "XYZ9876", "DEF5678"};
+
+    // Número fixo de placas lidas
+    int totalPlacasLidas = 5;
+
+    // Contadores de acesso
+    int acessosLiberados = 0;
+    int acessosNegados = 0;
+
+    // Processar cada placa lida
+    for (int i = 0; i < totalPlacasLidas; i++) {
+        string placaAtual = placasLidas[i];
+        bool encontrado = false;
+
+        // Verificar se a placa está no banco de dados
+        for (int j = 0; j < totalPlacasCadastradas; j++) {
+            if (placaAtual == placasCadastradas[j][0]) {
+                encontrado = true;
+                cout &lt;&lt; "Placa: " &lt;&lt; placaAtual &lt;&lt; " (Proprietário: " &lt;&lt; placasCadastradas[j][1] &lt;&lt; ") -> Acesso Liberado" &lt;&lt; endl;
+                acessosLiberados++;
+                break;
+            }
+        }
+
+        // Caso não esteja cadastrada
+        if (!encontrado) {
+            cout &lt;&lt; "Placa: " &lt;&lt; placaAtual &lt;&lt; " -> Acesso Negado" &lt;&lt; endl;
+            acessosNegados++;
+        }
+    }
+
+    // Exibir resumo final
+    cout &lt;&lt; endl;
+    cout &lt;&lt; "Resumo:" &lt;&lt; endl;
+    cout &lt;&lt; "Total de acessos liberados: " &lt;&lt; acessosLiberados &lt;&lt; endl;
+    cout &lt;&lt; "Total de acessos negados: " &lt;&lt; acessosNegados &lt;&lt; endl;
+
+    return 0;
+}
+        </pre>
+    </div>
+</body>
+</html>

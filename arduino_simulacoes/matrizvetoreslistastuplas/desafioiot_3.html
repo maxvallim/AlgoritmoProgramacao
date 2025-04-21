@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial: Monitoramento de Energia com Tuplas</title>
+    <style>
+        body {
+            background-color: white;
+            color: black;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2rem;
+            border-bottom: 2px solid black;
+            padding-bottom: 10px;
+        }
+        .section {
+            margin: 20px;
+            padding: 10px;
+            border: 1px solid black;
+            background-color: #f9f9f9;
+        }
+        pre {
+            background-color: #eeeeee;
+            padding: 15px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+        }
+        ul {
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tutorial: Monitoramento de Energia com Tuplas</h1>
+    
+    <div class="section">
+        <h2>Comparação: Array, Matriz, Lista e Tupla</h2>
+        <ul>
+            <li>
+                <strong>Array:</strong> Estrutura estática usada para armazenar um número fixo de elementos do mesmo tipo. Exige que o tamanho seja definido durante a compilação.
+                <br>Exemplo: <code>int valores[5] = {10, 20, 30, 40, 50};</code>
+            </li>
+            <li>
+                <strong>Matriz:</strong> Um array com múltiplas dimensões. Ideal para dados tabulares ou organizados em grades. Menos flexível que estruturas dinâmicas.
+                <br>Exemplo: <code>int matriz[3][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};</code>
+            </li>
+            <li>
+                <strong>Lista:</strong> Estrutura de dados dinâmica fornecida pela STL. Permite adicionar ou remover elementos em tempo de execução. Ideal para cenários em que o tamanho ou os dados mudam frequentemente.
+                <br>Exemplo: <code>list&lt;int&gt; valores = {10, 20, 30, 40, 50};</code>
+            </li>
+            <li>
+                <strong>Tupla:</strong> Estrutura que agrupa vários elementos em uma única unidade lógica. Diferentemente dos arrays e listas, os elementos em uma tupla podem ser de tipos diferentes.
+                <br>Exemplo: <code>tuple&lt;int, string, float&gt; dispositivo = make_tuple(1, "Geladeira", 200.0);</code>
+            </li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Explicação das Bibliotecas</h2>
+        <ul>
+            <li>
+                <strong>#include &lt;iostream&gt;</strong>: 
+                Biblioteca para entrada e saída de dados. Permite exibir informações no terminal com <code>cout</code>.
+            </li>
+            <li>
+                <strong>#include &lt;tuple&gt;</strong>: 
+                Biblioteca da STL que fornece o tipo <code>std::tuple</code>. Usada para agrupar diferentes tipos de dados em uma única unidade.
+            </li>
+            <li>
+                <strong>#include &lt;vector&gt;</strong>: 
+                Biblioteca que implementa o tipo <code>std::vector</code>, usada neste tutorial para armazenar várias tuplas.
+            </li>
+            <li>
+                <strong>#include &lt;string&gt;</strong>: 
+                Permite armazenar e manipular textos, como os nomes dos dispositivos.
+            </li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Código do Programa</h2>
+        <pre>
+#include &lt;iostream&gt;
+#include &lt;tuple&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+using namespace std;
+
+// Função para calcular o consumo total
+float calcularConsumoTotal(const vector&lt;tuple&lt;string, float, bool&gt;&gt;& dispositivos) {
+    float total = 0.0;
+    for (const auto& dispositivo : dispositivos) {
+        if (get&lt;2&gt;(dispositivo)) { // Verifica se o dispositivo está ligado
+            total += get&lt;1&gt;(dispositivo); // Soma o consumo
+        }
+    }
+    return total;
+}
+
+// Função para desligar dispositivos até equilibrar o consumo
+void equilibrarConsumo(vector&lt;tuple&lt;string, float, bool&gt;&gt;& dispositivos, float limite) {
+    cout &lt;&lt; "\nConsumo total excedeu " &lt;&lt; limite &lt;&lt; " kWh. Iniciando desligamento..." &lt;&lt; endl;
+
+    for (auto& dispositivo : dispositivos) {
+        if (get&lt;2&gt;(dispositivo)) { // Verifica se está ligado
+            cout &lt;&lt; "Desligando: " &lt;&lt; get&lt;0&gt;(dispositivo) &lt;&lt; " (Consumo: " &lt;&lt; get&lt;1&gt;(dispositivo) &lt;&lt; " kWh)" &lt;&lt; endl;
+            get&lt;2&gt;(dispositivo) = false; // Desliga o dispositivo
+
+            // Recalcular o consumo total
+            if (calcularConsumoTotal(dispositivos) <= limite) {
+                break;
+            }
+        }
+    }
+}
+
+int main() {
+    // Vetor de tuplas simulando os dispositivos
+    vector&lt;tuple&lt;string, float, bool&gt;&gt; dispositivos = {
+        make_tuple("Geladeira", 200.0, true),
+        make_tuple("Ar-condicionado", 350.0, true),
+        make_tuple("Máquina de lavar", 150.0, true),
+        make_tuple("TV", 100.0, true),
+        make_tuple("Computador", 120.0, true),
+        make_tuple("Micro-ondas", 90.0, true),
+    };
+
+    // Limite de consumo (em kWh)
+    const float limiteConsumo = 1000.0;
+
+    // Exibir estado inicial
+    cout &lt;&lt; "Estado inicial dos dispositivos:" &lt;&lt; endl;
+    for (const auto& dispositivo : dispositivos) {
+        cout &lt;&lt; " - " &lt;&lt; get&lt;0&gt;(dispositivo) &lt;&lt; " | Consumo: " &lt;&lt; get&lt;1&gt;(dispositivo)
+             &lt;&lt; " kWh | Ligado: " &lt;&lt; (get&lt;2&gt;(dispositivo) ? "Sim" : "Não") &lt;&lt; endl;
+    }
+
+    // Calcular consumo total
+    float consumoTotal = calcularConsumoTotal(dispositivos);
+    cout &lt;&lt; "\nConsumo total inicial: " &lt;&lt; consumoTotal &lt;&lt; " kWh" &lt;&lt; endl;
+
+    // Verificar se o limite foi ultrapassado
+    if (consumoTotal > limiteConsumo) {
+        equilibrarConsumo(dispositivos, limiteConsumo);
+    }
+
+    // Exibir estado final
+    cout &lt;&lt; "\nEstado final dos dispositivos:" &lt;&lt; endl;
+    for (const auto& dispositivo : dispositivos) {
+        cout &lt;&lt; " - " &lt;&lt; get&lt;0&gt;(dispositivo) &lt;&lt; " | Consumo: " &lt;&lt; get&lt;1&gt;(dispositivo)
+             &lt;&lt; " kWh | Ligado: " &lt;&lt; (get&lt;2&gt;(dispositivo) ? "Sim" : "Não") &lt;&lt; endl;
+    }
+
+    cout &lt;&lt; "\nMonitoramento concluído!" &lt;&lt; endl;
+
+    return 0;
+}
+        </pre>
+    </div>
+</body>
+</html>

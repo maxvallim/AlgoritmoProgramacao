@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial: Controle de Estoque com Sensores de Peso</title>
+    <style>
+        body {
+            background-color: white;
+            color: black;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2rem;
+            border-bottom: 2px solid black;
+            padding-bottom: 10px;
+        }
+        .section {
+            margin: 20px;
+            padding: 10px;
+            border: 1px solid black;
+            background-color: #f9f9f9;
+        }
+        pre {
+            background-color: #eeeeee;
+            padding: 15px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+        }
+        ul {
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tutorial: Controle de Estoque com Sensores de Peso</h1>
+
+    <div class="section">
+        <h2>Objetivo</h2>
+        <p>Este sistema simula o controle de estoque em um armazém, utilizando sensores de peso para verificar o status de caixas. A classificação de cada caixa é baseada nas seguintes regras:</p>
+        <ul>
+            <li>Se o peso for inferior a 5 kg, sinalizar <strong>Estoque baixo</strong>.</li>
+            <li>Se o peso for maior que 50 kg, sinalizar <strong>Excesso de estoque</strong>.</li>
+            <li>Para pesos entre 5 kg e 50 kg, registrar como <strong>Estoque normal</strong>.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Explicação das Estruturas Utilizadas</h2>
+        <ul>
+            <li>
+                <strong>Tupla (`std::tuple`):</strong> 
+                Utilizada para agrupar informações sobre cada caixa, como o nome e o peso.
+            </li>
+            <li>
+                <strong>Vetor (`std::vector`):</strong> 
+                Armazena todas as caixas dinamicamente, permitindo fácil manipulação e acesso sequencial.
+            </li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Explicação das Bibliotecas</h2>
+        <ul>
+            <li>
+                <strong>#include &lt;iostream&gt;</strong>: 
+                Biblioteca para entrada e saída de dados. Usada para exibir informações no terminal com <code>cout</code>.
+            </li>
+            <li>
+                <strong>#include &lt;tuple&gt;</strong>: 
+                Biblioteca para criar e manipular tuplas que agrupam diferentes tipos de dados.
+            </li>
+            <li>
+                <strong>#include &lt;vector&gt;</strong>: 
+                Biblioteca para armazenar coleções dinâmicas de objetos, como as caixas neste sistema.
+            </li>
+            <li>
+                <strong>#include &lt;string&gt;</strong>: 
+                Usada para manipular textos, como os nomes das caixas.
+            </li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Código do Programa</h2>
+        <pre>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;tuple&gt;
+#include &lt;string&gt;
+using namespace std;
+
+int main() {
+    // Vetor de tuplas para armazenar as caixas (nome, peso)
+    vector&lt;tuple&lt;string, float&gt;&gt; caixas = {
+        make_tuple("Caixa A", 3.5),  // Estoque baixo
+        make_tuple("Caixa B", 20.0), // Estoque normal
+        make_tuple("Caixa C", 55.0), // Excesso de estoque
+        make_tuple("Caixa D", 4.9),  // Estoque baixo
+        make_tuple("Caixa E", 50.0), // Estoque normal
+    };
+
+    // Processar cada caixa
+    cout &lt;&lt; "Status das caixas no armazém:" &lt;&lt; endl;
+    for (const auto& caixa : caixas) {
+        string nome;
+        float peso;
+
+        // Desempacotar os dados da tupla
+        tie(nome, peso) = caixa;
+
+        // Verificar o status do estoque baseado no peso
+        cout &lt;&lt; nome &lt;&lt; " | Peso: " &lt;&lt; peso &lt;&lt; " kg -> ";
+        if (peso < 5.0) {
+            cout &lt;&lt; "Estoque baixo" &lt;&lt; endl;
+        } else if (peso > 50.0) {
+            cout &lt;&lt; "Excesso de estoque" &lt;&lt; endl;
+        } else {
+            cout &lt;&lt; "Estoque normal" &lt;&lt; endl;
+        }
+    }
+
+    return 0;
+}
+        </pre>
+    </div>
+
+    <div class="section">
+        <h2>Saída Esperada</h2>
+        <p>Quando o programa é executado com os dados fornecidos, ele exibe:</p>
+        <pre>
+Status das caixas no armazém:
+Caixa A | Peso: 3.5 kg -> Estoque baixo
+Caixa B | Peso: 20 kg -> Estoque normal
+Caixa C | Peso: 55 kg -> Excesso de estoque
+Caixa D | Peso: 4.9 kg -> Estoque baixo
+Caixa E | Peso: 50 kg -> Estoque normal
+        </pre>
+    </div>
+
+    <div class="section">
+        <h2>Possíveis Melhorias</h2>
+        <ul>
+            <li>Permitir entrada dinâmica de dados pelo usuário (nome e peso das caixas).</li>
+            <li>Adicionar categorias adicionais, como "Estoque crítico".</li>
+            <li>Gerar relatórios sobre a quantidade de caixas em cada status.</li>
+        </ul>
+    </div>
+</body>
+</html>

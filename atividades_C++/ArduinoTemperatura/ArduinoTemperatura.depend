@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1745244613 source:c:\users\maxva\onedrive - fiscon\max\max_unifeob\unidadesestudo\algoritmoprogramacao\atividades_c++\arduinotemperatura\main.cpp
+	<iostream>
+	<cstdlib>
+	<ctime>
+	<vector>
+	<string>
+
