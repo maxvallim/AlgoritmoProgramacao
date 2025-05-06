@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Código C++ Formatado</title>
+    <style>
+        body {
+            background-color: white;
+            color: black;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-size: 16px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>Código C++ Formatado</h1>
+    <pre>
+#include &lt;iostream&gt;
+#include &lt;cstdlib&gt;
+#include &lt;ctime&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+using namespace std;
+
+int main()
+{
+    srand(time(0));
+
+// escolha do nivel
+    int nivel;
+    cout &lt;&lt; "Digite o nivel de dificuldade: ";
+    cin &gt;&gt; nivel;
+
+// carga aleatorios
+    int numale[nivel];
+    for (int i = 0; i &lt; nivel; i++) {
+        numale[i]= rand() % 50 + 1;
+//        cout &lt;&lt; "numero gerado: " &lt;&lt; numale[i] &lt;&lt; endl;
+    }
+
+    string resultado;
+    int numlances[nivel];
+    int flag=0;
+    while (flag == 0) {
+        resultado="";
+        for (int i = 0; i &lt; nivel; i++) {
+            cout &lt;&lt; "Digite o numero " &lt;&lt; i+1 &lt;&lt;":";
+            cin &gt;&gt; numlances[i];
+            if (numlances[i] &lt; numale[i]) {
+                resultado=resultado + "numero e maior";
+            }
+            if (numlances[i] &gt; numale[i]) {
+                resultado=resultado + "numero e menor";
+            }
+        }
+
+        if (resultado==""){
+            flag=2;
+        }
+        else {
+            cout &lt;&lt; resultado &lt;&lt; endl;
+            string opcao="S";
+            cout &lt;&lt; "Deseja continuar tentando (S/N)? ";
+            cin &gt;&gt; opcao;
+            if (opcao=="N") {
+                flag=1;
+            }
+        }
+    }
+
+    switch (flag) {
+        case 1:
+            cout &lt;&lt; "Que pena, voce desistiu";
+            break;
+        case 2:
+            cout &lt;&lt; "Parabens, voce venceu";
+            break;
+    }
+    return 0;
+    </pre>
+</body>
+</html>
